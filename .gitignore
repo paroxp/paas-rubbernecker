@@ -102,3 +102,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# IntelliJ
+.idea/
+
