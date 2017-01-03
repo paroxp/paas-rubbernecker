@@ -1,8 +1,13 @@
 <div class="story">
     <div class="panel panel-<%= status %>">
         <div class="panel-heading">
+            <span class="days">
+                ► <%= story.daysInProgress %> day<% if (story.daysInProgress != 1) { %>s<% } %>
+            </span>
             <h3 class="panel-title">
-                <%= story.name %>
+                <a href="https://www.pivotaltracker.com/story/show/<%= story.id %>" target="_blank">
+                    <%= story.name %>
+                </a>
             </h3>
         </div>
 
@@ -22,7 +27,7 @@
             <% if (story.workers.length > 0) { %>
                 <div>
                     <h4>Assignee<%= story.workers.length != 1 ? "s" : "" %></h4>
-                    <p><%= story.workers.join(" | "); %></p>
+                    <p><%= story.workers.join(", "); %></p>
                 </div>
             <% } %>
 
@@ -30,12 +35,6 @@
                 <div class="col-md-6">
                     <a href="#<%= story.id %>-info" data-toggle="collapse" aria-expanded="false" aria-controls="<%= story.id %>-info">
                         More info
-                    </a>
-                </div>
-
-                <div class="col-md-6 text-right">
-                    <a href="https://www.pivotaltracker.com/story/show/<%= story.id %>" target="_blank">
-                        View Story
                     </a>
                 </div>
             </div>

@@ -79,3 +79,7 @@
 .story .panel-footer .sticker img {
   max-width: 100%;
 }
+.days {
+  float: right;
+  font-size: 0.8em;
+}
