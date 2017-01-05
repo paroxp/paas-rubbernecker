@@ -35,7 +35,12 @@
             <h2>Doing <small><%= story.length %></small></h2>
 
             <% story.forEach(function(story) { %>
-                <%- include('story/summary', {story: story, status: "started", message: "In Progress"}); %>
+                <%- include('story/summary', {
+                    story: story,
+                    status: "started",
+                    message: "In Progress",
+                    overLimit: false
+                }); %>
             <% }); %>
         </div>
 
@@ -80,7 +85,12 @@
             <h2>Rejected <small><%= rejectedStory.length %></small></h2>
 
             <% rejectedStory.forEach(function(story) { %>
-                <%- include('story/summary', {story: story, status: "rejected", message: "Rejected"}); %>
+                <%- include('story/summary', {
+                    story: story,
+                    status: "rejected",
+                    message: "Rejected",
+                    overLimit: false
+                }); %>
             <% }); %>
         </div>
         <% } %>
