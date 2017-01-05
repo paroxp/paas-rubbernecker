@@ -54,7 +54,7 @@
         </div>
 
 
-        <div class="panel-footer <%= story.isBlocked || overLimit ? '' :'hidden' %>">
+        <div class="panel-footer <%= story.isBlocked || story.hasComments || overLimit ? '' :'hidden' %>">
             <% if (overLimit) { %>
                 <div class="row">
                     <div class="col-sm-2 sticker">
@@ -68,8 +68,7 @@
                 </div>
             <% } %>
 
-
-            <% if (typeof story.isBlocked !== 'undefined' && story.isBlocked) { %>
+            <% if (story.isBlocked) { %>
                 <div class="row">
                     <div class="col-sm-2 sticker">
                         <img src="/images/blocked.svg" alt="Story Blocked" class="img-circle">
@@ -78,6 +77,19 @@
                     <div class="col-sm-10 description">
                         Blocked!<br/>
                         Does any body work around here?
+                    </div>
+                </div>
+            <% } %>
+
+            <% if (story.hasComments) { %>
+                <div class="row">
+                    <div class="col-sm-2 sticker">
+                        <img src="/images/comments.svg" alt="Story has Comments to Resolve" class="img-circle">
+                    </div>
+
+                    <div class="col-sm-10 description">
+                        Has comments to resolve<br/>
+                        Or maybe I just haven't check for a while...
                     </div>
                 </div>
             <% } %>
