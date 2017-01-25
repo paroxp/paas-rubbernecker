@@ -37,6 +37,11 @@
                         More info
                     </a>
                 </div>
+                <div class="col-md-6" style="text-align:right">
+                    <% if (story.team ) { %>
+                    Team: <strong><%= story.team %></strong>
+                    <% } %>
+                </div>
             </div>
 
             <div id="<%= story.id %>-info" class="collapse">
