@@ -28,6 +28,27 @@
 
 </head>
 <body>
+<div class="options clearfix">
+    <label>
+        Team:
+        <div class="btn-group team-switch" role="group">
+            <a href="#" class="btn btn-sm btn-default" data-switch data-target=".story[class*='team-']" data-hide=".team-B">A</a>
+            <a href="#" class="btn btn-sm btn-default active" data-switch data-target=".story[class*='team-']">Neutral</a>
+            <a href="#" class="btn btn-sm btn-default" data-switch data-target=".story[class*='team-']" data-hide=".team-A">B</a>
+        </div>
+    </label>
+
+    <label>
+        Neutral:
+        <div class="btn-group team-switch" role="group">
+            <a href="#" class="btn btn-sm btn-default active" data-switch data-target=".story.neutral">Show</a>
+            <a href="#" class="btn btn-sm btn-default" data-switch data-target=".story.neutral" data-hide=".neutral">Hide</a>
+        </div>
+    </label>
+
+    <a href="#" class="glyphicon glyphicon-cog handler"></a>
+</div>
+
 <div class="container-fluid" role="main">
     <div class="row">
         <% colclass = rejectedStory.length > 0 ? "col-md-3" : "col-md-4" %>
@@ -108,5 +129,6 @@
 <!-- I am terribly sorry for this... Really, really sorry... - Rafal -->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/rubbernecker.js"></script>
 </body>
 </html>
