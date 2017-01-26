@@ -126,3 +126,11 @@ div.options a.handler {
   top: 3em;
   width: 2em;
 }
+
+div.options label {
+  margin-right: 2em;
+}
+
+div.options label:last-of-type {
+  margin-right: 0;
+}

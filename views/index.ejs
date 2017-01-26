@@ -29,11 +29,22 @@
 </head>
 <body>
 <div class="options clearfix">
-    <div class="btn-group team-switch" role="group">
-        <a href="#" class="btn btn-sm btn-default" data-target=".story" data-hide=".team-B">Team A</a>
-        <a href="#" class="btn btn-sm btn-default active" data-target=".story">Neutral</a>
-        <a href="#" class="btn btn-sm btn-default" data-target=".story" data-hide=".team-A">Team B</a>
-    </div>
+    <label>
+        Team:
+        <div class="btn-group team-switch" role="group">
+            <a href="#" class="btn btn-sm btn-default" data-switch data-target=".story[class*='team-']" data-hide=".team-B">A</a>
+            <a href="#" class="btn btn-sm btn-default active" data-switch data-target=".story[class*='team-']">Neutral</a>
+            <a href="#" class="btn btn-sm btn-default" data-switch data-target=".story[class*='team-']" data-hide=".team-A">B</a>
+        </div>
+    </label>
+
+    <label>
+        Neutral:
+        <div class="btn-group team-switch" role="group">
+            <a href="#" class="btn btn-sm btn-default active" data-switch data-target=".story.neutral">Show</a>
+            <a href="#" class="btn btn-sm btn-default" data-switch data-target=".story.neutral" data-hide=".neutral">Hide</a>
+        </div>
+    </label>
 
     <a href="#" class="glyphicon glyphicon-cog handler"></a>
 </div>

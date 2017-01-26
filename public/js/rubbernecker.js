@@ -45,10 +45,10 @@ var App = {
         return false;
     },
 
-    toggleTeam: function (e) {
+    toggleCards: function (e) {
         e.preventDefault();
 
-        var $switches = $('.team-switch a'),
+        var $switches = $(this).parent().find('a[data-switch]'),
             target = $(this).attr('data-target'),
             toHide = $(this).attr('data-hide');
 
@@ -75,6 +75,6 @@ var App = {
 $(document)
     .ready(function () {
         $('body')
-            .on('click', '.team-switch a', App.toggleTeam)
+            .on('click', '.team-switch a', App.toggleCards)
             .on('click', 'div.options .handler', App.toggleMenu);
     });
