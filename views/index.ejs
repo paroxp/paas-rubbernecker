@@ -28,6 +28,15 @@
 
 </head>
 <body>
+
+<div class="update bg-danger" style="display: none;">
+    <p>
+        Your board may be slightly out of date. The page will be refreshed, in <span>30</span> seconds.
+        <a href="#" data-trigger="refresh">Refresh</a>
+        <a href="#" data-trigger="cancel">Cancel</a>
+    </p>
+</div>
+
 <div class="options clearfix">
     <label>
         Team:
@@ -43,6 +52,14 @@
         <div class="btn-group team-switch" role="group">
             <a href="#" class="btn btn-sm btn-default active" data-switch data-target=".story.neutral">Show</a>
             <a href="#" class="btn btn-sm btn-default" data-switch data-target=".story.neutral" data-hide=".neutral">Hide</a>
+        </div>
+    </label>
+
+    <label>
+        Updates:
+        <div class="btn-group board-updates" role="group">
+            <a href="#" class="btn btn-sm btn-default active" data-switch="on">On</a>
+            <a href="#" class="btn btn-sm btn-default" data-switch="off">Off</a>
         </div>
     </label>
 
@@ -130,5 +147,8 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/rubbernecker.js"></script>
+<script>
+    var currentState = '<%= currentState %>';
+</script>
 </body>
 </html>

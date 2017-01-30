@@ -88,6 +88,28 @@
   float: right;
   font-size: 0.8em;
 }
+
+div.update {
+  left: 0;
+  padding: 1em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+div.update p {
+  margin: 0;
+}
+
+div.update a {
+  color: #000000;
+  display: inline-block;
+  font-weight: bold;
+  margin-left: .5em;
+  text-decoration: none;
+}
+
 div.options {
   background-color: #fff;
   border-bottom: 1px solid #ddd;
