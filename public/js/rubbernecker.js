@@ -1,5 +1,6 @@
 var App = {
     config: {
+        hash: {},
         updateCheck: null,
         updatePending: null,
         countdowns: []
@@ -30,7 +31,37 @@ var App = {
         });
     },
 
-    disableUpdates: function () {
+    changeHash: function () {
+        var string = '';
+
+        $.each(App.config.hash, function (key, value) {
+            if (string !== '') {
+                string = string + '&';
+            }
+
+            if (key !== '' || value !== undefined) {
+                string = string + key + '=' + value;
+            }
+        });
+
+        if (string.length) {
+            window.location.hash = '#' + string;
+        }
+    },
+
+    checkHash: function (e) {
+        $.each(App.config.hash, function (key, value) {
+            if (App.config.hash[key] === undefined) {
+                return;
+            }
+
+            var $switch = $('[data-switch="' + key + '"][data-value="' + value + '"]');
+
+            $switch.trigger('click');
+        });
+    },
+
+    disableUpdates: function (e) {
         if (App.config.updateCheck !== null) {
             clearInterval(App.config.updateCheck);
             App.config.updateCheck = null;
@@ -45,11 +76,15 @@ var App = {
         $('.board-updates [data-switch="off"]').addClass('active');
 
         $('.update').slideUp();
+
+        console.debug('Updates have been disabled.');
     },
 
     enableUpdates: function (seconds) {
         if (App.config.updateCheck === null) {
             App.config.updateCheck = setInterval(App.checkForUpdates, seconds * 1000);
+
+            console.debug('Updates have been enabled.');
         }
     },
 
@@ -91,6 +126,20 @@ var App = {
         });
     },
 
+    readHash: function () {
+        var urlHash = window.location.hash.slice(1),
+            hash = urlHash.split('&'),
+            config = {};
+
+        $.each(hash, function (key, value) {
+            var attr = value.split('=');
+
+            config[attr[0]] = attr[1];
+        });
+
+        App.config.hash = config;
+    },
+
     refresh: function () {
         location.reload();
     },
@@ -120,8 +169,6 @@ var App = {
     },
 
     toggleCards: function (e) {
-        App.toggleSwitch(e);
-
         var target = $(this).attr('data-target'),
             toHide = $(this).attr('data-hide');
 
@@ -137,15 +184,23 @@ var App = {
     toggleSwitch: function (e) {
         e.preventDefault();
 
-        var $switches = $(this).parent().find('a[data-switch]');
+        var $switches = $(this).parent().find('a[data-switch]'),
+            switchName = $(this).attr('data-switch'),
+            switchValue = $(this).attr('data-value') || $(this).text().toLowerCase();
 
         if ($(this).hasClass('active')) {
             return;
         }
 
+        App.config.hash[switchName] = switchValue;
+
         // Toggle active class.
         $switches.filter('.active').removeClass('active');
         $(this).addClass('active');
+
+        App.changeHash();
+
+        console.debug('Switch "' + switchName + '" has been set to "' + switchValue + '".');
 
         return false;
     }
@@ -153,13 +208,16 @@ var App = {
 
 $(document)
     .ready(function () {
+        App.readHash();
+
         $('body')
-            .on('click', '[data-switch]', App.toggleSwitch)
-            .on('click', '.team-switch a', App.toggleCards)
+            .on('click', '[data-switch="team"], [data-switch="neutral"]', App.toggleCards)
             .on('click', 'div.options .handler', App.toggleMenu)
-            .on('click', '.update [data-trigger="cancel"], .board-updates [data-switch="off"]', App.disableUpdates)
-            .on('click', '.board-updates [data-switch="on"]', setupUpdates)
-            .on('click', '.update [data-trigger="refresh"]', App.refresh);
+            .on('click', '.update [data-trigger="cancel"], [data-switch="updates"][data-value="off"]', App.disableUpdates)
+            .on('click', '[data-switch="updates"][data-value="on"]', setupUpdates)
+            .on('click', '.update [data-trigger="refresh"]', App.refresh)
+            .on('click', '[data-switch]', App.toggleSwitch)
+            .ready(App.checkHash);
 
         setupUpdates();
 
