@@ -21,5 +21,14 @@
 <%= message %>
 <h2><%= status %> happend</h2>
 <h1><%= reason %></h1>
+
+<small>We'll attempt to refresh every 10s.</small>
+
+<script>
+  setTimeout(function () {
+    console.info('Attempting to recover...');
+    location.reload();
+  }, 10000);
+</script>
 </body>
 </html>
