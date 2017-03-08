@@ -88,44 +88,6 @@ var App = {
         }
     },
 
-    gracefulIn: function ($elements) {
-        $elements.each(function () {
-            var $element = $(this);
-
-            if (!$element.is(':hidden')) {
-                return;
-            }
-
-            $element.css('opacity', 0);
-            $element.slideDown();
-
-            setTimeout(function () {
-                $element.animate({
-                    opacity: 1
-                });
-            }, 500);
-        });
-    },
-
-    gracefulOut: function ($elements) {
-        $elements.each(function () {
-            var $element = $(this);
-
-            if ($element.is(':hidden')) {
-                return;
-            }
-
-            $element.css('opacity', 1);
-            $element.animate({
-                opacity: 0
-            });
-
-            setTimeout(function () {
-                $element.slideUp();
-            }, 500);
-        });
-    },
-
     readHash: function () {
         var urlHash = window.location.hash.slice(1),
             hash = urlHash.split('&'),
@@ -168,19 +130,6 @@ var App = {
         return false;
     },
 
-    toggleCards: function (e) {
-        var target = $(this).attr('data-target'),
-            toHide = $(this).attr('data-hide');
-
-        // Show all the stories.
-        App.gracefulIn($(target));
-
-        // Hide other elements if possible.
-        if (toHide) {
-            App.gracefulOut($(target).filter(toHide));
-        }
-    },
-
     toggleSwitch: function (e) {
         e.preventDefault();
 
@@ -211,7 +160,6 @@ $(document)
         App.readHash();
 
         $('body')
-            .on('click', '[data-switch="team"], [data-switch="neutral"]', App.toggleCards)
             .on('click', 'div.options .handler', App.toggleMenu)
             .on('click', '.update [data-trigger="cancel"], [data-switch="updates"][data-value="off"]', App.disableUpdates)
             .on('click', '[data-switch="updates"][data-value="on"]', setupUpdates)
