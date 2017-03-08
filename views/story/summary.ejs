@@ -1,4 +1,4 @@
-<div class="story <%= story.team ? 'team-' + story.team : 'neutral' %>">
+<div class="story <%= story.lead ? 'lead-' + story.lead : 'neutral' %>">
     <div class="panel panel-<%= status %>">
         <div class="panel-heading">
             <span class="days">
@@ -38,8 +38,8 @@
                     </a>
                 </div>
                 <div class="col-md-6 text-right">
-                    <% if (story.team) { %>
-                        Team: <strong><%= story.team %></strong>
+                    <% if (story.lead) { %>
+                        Lead: <strong><%= story.lead %></strong>
                     <% } %>
                 </div>
             </div>
