@@ -59,7 +59,6 @@
                 <%- include('story/summary', {
                     story: story,
                     status: "started",
-                    message: "In Progress",
                     overLimit: false
                 }); %>
             <% }); %>
@@ -77,7 +76,6 @@
                 <%- include('story/summary', {
                     story: story,
                     status: "finished",
-                    message: "In Review",
                     overLimit: reviewSlotsLimit < (key + 1)
                 }); %>
             <% }); %>
@@ -95,7 +93,6 @@
                 <%- include('story/summary', {
                     story: story,
                     status: "delivered",
-                    message: "In Approving",
                     overLimit: approveSlotsLimit < (key + 1)
                 }); %>
             <% }); %>
@@ -109,7 +106,6 @@
                 <%- include('story/summary', {
                     story: story,
                     status: "rejected",
-                    message: "Rejected",
                     overLimit: false
                 }); %>
             <% }); %>
