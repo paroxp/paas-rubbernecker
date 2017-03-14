@@ -12,31 +12,29 @@
         </div>
 
         <div class="panel-body">
-            <% if (story.workers.length === 0) { %>
-                <h4 class="text-danger">
-                    <% if (story.workers.length === 0) { %>
-                        <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
-                    <% } %>
-                    Nobody is working on this
-
-                    <br>
-                    <small>Sad times.</small>
-                </h4>
-            <% } %>
-
-            <% if (story.workers.length > 0) { %>
-                <div>
-                    <h4>Assignee<%= story.workers.length != 1 ? "s" : "" %></h4>
-                    <p><%= story.workers.join(", "); %></p>
-                </div>
-            <% } %>
-
             <div class="row">
-                <div class="col-md-6 text-right">
-                    <% if (story.lead) { %>
-                        Lead: <strong><%= story.lead %></strong>
+                <div class="<%= story.lead ? "col-md-9" : "col-md-12" %>">
+                    <% if (story.workers.length === 0) { %>
+                        <h4 class="text-danger">
+                            <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+                            Nobody is working on this
+
+                            <br>
+                            <small>Sad times.</small>
+                        </h4>
+                    <% } %>
+
+                    <% if (story.workers.length > 0) { %>
+                        <h4>Assignee<%= story.workers.length != 1 ? "s" : "" %></h4>
+                        <p><%= story.workers.join(", "); %></p>
                     <% } %>
                 </div>
+
+                <% if (story.lead) { %>
+                    <div class="col-md-3 text-right">
+                        Lead: <strong><%= story.lead %></strong>
+                    </div>
+                <% } %>
             </div>
         </div>
 
