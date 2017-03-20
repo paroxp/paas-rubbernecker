@@ -156,3 +156,13 @@ div.options label {
 div.options label:last-of-type {
   margin-right: 0;
 }
+
+.story .panel-body .team-lead {
+  align-items: flex-end;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-container {
+  display: flex;
+}

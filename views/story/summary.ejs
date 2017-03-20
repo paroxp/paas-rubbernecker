@@ -24,37 +24,21 @@
                 </h4>
             <% } %>
 
-            <% if (story.workers.length > 0) { %>
-                <div>
-                    <h4>Assignee<%= story.workers.length != 1 ? "s" : "" %></h4>
-                    <p><%= story.workers.join(", "); %></p>
-                </div>
-            <% } %>
+            <div class="row flex-container">
+                <% if (story.workers.length > 0) { %>
+                    <div class="col-md-8">
+                        <h4>Assignee<%= story.workers.length != 1 ? "s" : "" %></h4>
+                        <p><%= story.workers.join(", "); %></p>
+                    </div>
+                <% } %>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <a href="#<%= story.id %>-info" data-toggle="collapse" aria-expanded="false" aria-controls="<%= story.id %>-info">
-                        More info
-                    </a>
-                </div>
-                <div class="col-md-6 text-right">
+                <div class="col-md-4 team-lead">
                     <% if (story.lead) { %>
-                        Lead: <strong><%= story.lead %></strong>
+                        <p>
+                            Lead: <strong><%= story.lead %></strong>
+                        </p>
                     <% } %>
                 </div>
-            </div>
-
-            <div id="<%= story.id %>-info" class="collapse">
-                <table class="table table-bordered">
-                    <tr>
-                        <th>Status</th>
-                        <td><%= message %></td>
-                    </tr>
-                    <tr>
-                        <th>Requester</th>
-                        <td><%= story.signOffBy %></td>
-                    </tr>
-                </table>
             </div>
         </div>
 
