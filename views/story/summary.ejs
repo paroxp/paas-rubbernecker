@@ -24,17 +24,19 @@
                 </h4>
             <% } %>
 
-            <% if (story.workers.length > 0) { %>
-                <div>
-                    <h4>Assignee<%= story.workers.length != 1 ? "s" : "" %></h4>
-                    <p><%= story.workers.join(", "); %></p>
-                </div>
-            <% } %>
+            <div class="row flex-container">
+                <% if (story.workers.length > 0) { %>
+                    <div class="col-md-8">
+                        <h4>Assignee<%= story.workers.length != 1 ? "s" : "" %></h4>
+                        <p><%= story.workers.join(", "); %></p>
+                    </div>
+                <% } %>
 
-            <div class="row">
-                <div class="col-md-6 text-right">
+                <div class="col-md-4 team-lead">
                     <% if (story.lead) { %>
-                        Lead: <strong><%= story.lead %></strong>
+                        <p>
+                            Lead: <strong><%= story.lead %></strong>
+                        </p>
                     <% } %>
                 </div>
             </div>
