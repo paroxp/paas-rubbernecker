@@ -12,25 +12,16 @@
         </div>
 
         <div class="panel-body">
-            <% if (story.workers.length === 0) { %>
-                <h4 class="text-danger">
-                    <% if (story.workers.length === 0) { %>
-                        <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
-                    <% } %>
-                    Nobody is working on this
-
-                    <br>
-                    <small>Sad times.</small>
-                </h4>
-            <% } %>
-
             <div class="row flex-container">
-                <% if (story.workers.length > 0) { %>
-                    <div class="col-md-8">
+                <div class="col-md-8">
+                    <% if (story.workers.length > 0) { %>
                         <h4>Assignee<%= story.workers.length != 1 ? "s" : "" %></h4>
                         <p><%= story.workers.join(", "); %></p>
-                    </div>
-                <% } %>
+                    <% } else { %>
+                        <h4 class="text-danger">Nobody is working on this</h4>
+                        <p>Sad times.</p>
+                    <% } %>
+                </div>
 
                 <div class="col-md-4 team-lead">
                     <% if (story.lead) { %>
