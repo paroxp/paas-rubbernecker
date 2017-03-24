@@ -76,7 +76,11 @@
 .story {
   position: relative;
 }
+.story .panel-footer .sticker {
+  height: 40px;
+}
 .story .panel-footer .sticker img {
+  max-height: 40px;
   max-width: 100%;
 }
 .story .panel-footer .row:not(:last-of-type) {

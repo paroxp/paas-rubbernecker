@@ -37,11 +37,11 @@
         <div class="panel-footer <%= story.isBlocked || story.hasComments || overLimit ? '' :'hidden' %>">
             <% if (overLimit) { %>
                 <div class="row">
-                    <div class="col-sm-2 sticker">
+                    <div class="col-xs-2 sticker">
                         <img src="/images/sad_panda.gif" alt="Sad Panda" class="img-circle">
                     </div>
 
-                    <div class="col-sm-10 description">
+                    <div class="col-xs-10 description">
                         I am a sad panda.<br/>
                         I will never find any slots for <%= status == 'finished' ? 'review' : 'acceptance' %>.
                     </div>
@@ -50,11 +50,11 @@
 
             <% if (story.isBlocked) { %>
                 <div class="row">
-                    <div class="col-sm-2 sticker">
+                    <div class="col-xs-2 sticker">
                         <img src="/images/blocked.svg" alt="Story Blocked" class="img-circle">
                     </div>
 
-                    <div class="col-sm-10 description">
+                    <div class="col-xs-10 description">
                         Blocked!<br/>
                         See story comments for more details
                     </div>
@@ -63,11 +63,11 @@
 
             <% if (story.hasComments) { %>
                 <div class="row">
-                    <div class="col-sm-2 sticker">
+                    <div class="col-xs-2 sticker">
                         <img src="/images/comments.svg" alt="Story has Comments to Resolve" class="img-circle">
                     </div>
 
-                    <div class="col-sm-10 description">
+                    <div class="col-xs-10 description">
                         Has comments to resolve<br/>
                         See story or pull request for more details
                     </div>
