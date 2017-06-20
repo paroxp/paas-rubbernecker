@@ -78,4 +78,7 @@ app.set('reviewSlotsLimit', reviewSlotsLimit);
 var signOffSlotsLimit = process.env.REVIEW_SLOTS_LIMIT || 5;
 app.set('signOffSlotsLimit', signOffSlotsLimit);
 
+var pagerdutyAPIToken = process.env.PAGERDUTY_API_TOKEN || 'You need to set a key';
+app.set('pagerdutyAPIToken', pagerdutyAPIToken);
+
 module.exports = app;

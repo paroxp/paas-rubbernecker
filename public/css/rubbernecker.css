@@ -170,3 +170,12 @@ div.options label:last-of-type {
 .flex-container {
   display: flex;
 }
+
+.support {
+  margin: 1rem;
+  text-align: center;
+}
+
+.support em {
+  margin-right: 1rem;
+}
