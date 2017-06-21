@@ -49,6 +49,14 @@
     <a href="#" class="glyphicon glyphicon-cog handler"></a>
 </div>
 
+<% if (support != null) { %>
+<div class="support">
+    <% support.forEach(function(supp) { %>
+    <strong><%= supp.schedule %></strong>: <em><%= supp.user %></em>
+    <% }); %>
+</div>
+<% } %>
+
 <div class="container-fluid" role="main">
     <div class="row">
         <% colclass = "col-md-4" %>
