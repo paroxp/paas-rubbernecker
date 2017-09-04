@@ -8,21 +8,25 @@ It organises things by status, displays simple information about each story, who
 
 Clone this repo
 
-``` 
+```
 npm install
 ```
 
 ## Running
 After completing above installation instructions, to run locally without Basic Authentication:
 
-``` 
-DEBUG=rubbernecker:* PIVOTAL_API_KEY=your-api-key PIVOTAL_PROJECT_ID=your-project-id npm start
+```
+DEBUG=rubbernecker:* PIVOTAL_API_KEY=your-api-key PIVOTAL_PROJECT_ID=your-project-id PAGERDUTY_API_TOKEN=your-pagerduty-token npm start
 ```
 
 If you want to try out the stunning Basic Auth (useful for when you don't want everyone getting straight to your story overviews)
-``` 
-DEBUG=rubbernecker:* PIVOTAL_API_KEY=your-api-key PIVOTAL_PROJECT_ID=your-project-id USE_AUTH=true USERNAME=username PASSWORD=password npm start
 ```
+DEBUG=rubbernecker:* PIVOTAL_API_KEY=your-api-key PIVOTAL_PROJECT_ID=your-project-id PAGERDUTY_API_TOKEN=your-pagerduty-token USE_AUTH=true USERNAME=username PASSWORD=password npm start
+```
+
+#### PagerDuty Support
+
+Rubbernecker **optionally** supports PagerDuty, for pulling out the current rota information. This requires a `PAGERDUTY_API_TOKEN` environment variable, to be passed before the app is run.
 
 ### Deploying
 I've been deploying this to cloud foundry so I use the following manifest file:
@@ -38,6 +42,7 @@ applications:
   env:
     PIVOTAL_API_KEY: API KEY GOES HERE
     PIVOTAL_PROJECT_ID: PROJECT ID GOES HERE
+    PAGERDUTY_API_TOKEN: PAGERDUTY TOKEN GOES HERE
     USE_AUTH: true
     USERNAME: sensible username goes here
     PASSWORD: sensible long password goes here
