@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Rubbernecker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="container-fluid">
+  {{$next := .Cards.Filter "next"}}
+  {{$doing := .Cards.Filter "doing"}}
+  {{$reviewing := .Cards.Filter "reviewing"}}
+  {{$approving := .Cards.Filter "approving"}}
+  {{$done := .Cards.Filter "done"}}
+
+  <header class="text-center">
+    <ul>
+      <li><strong>In hours</strong>: <em>{{(index .SupportRota "in-hours").Member}}</em></li>
+      <li><strong>Out of hours</strong>: <em>{{(index .SupportRota "out-of-hours").Member}}</em></li>
+      <li><strong>Escelations</strong>: <em>{{(index .SupportRota "escalations").Member}}</em></li>
+    </ul>
+  </header>
+
+  <main class="row">
+    <section id="next" class="column collapsed left" style="display:none;">
+      <h2>Next</h2>
+
+      {{range $next}}
+        {{template "card" .}}
+      {{end}}
+    </section>
+
+    <section id="doing" class="col-md">
+      <h2>Doing</h2>
+
+      {{range $doing}}
+        {{template "card" .}}
+      {{end}}
+    </section>
+
+    <section id="reviewing" class="col-md" data-limit=".Config.ReviewalLimit">
+      <h2>Reviewing <small class="{{if gt (len $reviewing) .Config.ReviewalLimit}}text-danger{{end}}">{{len $reviewing}}/{{.Config.ReviewalLimit}}</small></h2>
+
+      {{range $reviewing}}
+        {{template "card" .}}
+      {{end}}
+    </section>
+
+    <section id="approving" class="col-md" data-limit=".Config.ApprovalLimit">
+      <h2>Approving <small class="{{if gt (len $approving) .Config.ApprovalLimit}}text-danger{{end}}">{{len $approving}}/{{.Config.ApprovalLimit}}</small></h2>
+
+      {{range $approving}}
+        {{template "card" .}}
+      {{end}}
+    </section>
+
+    <section id="done" class="column collapsed right" style="display:none;">
+      <h2>Done</h2>
+
+      {{range $done}}
+        {{template "card" .}}
+      {{end}}
+    </section>
+  </main>
+
+  <footer>
+    <ul>
+      {{range .FreeTeamMembers}}
+        <li>{{.Name}}</li>
+      {{end}}
+    </ul>
+
+    <span>{{len .FreeTeamMembers}}</span>
+  </footer>
+
+  <script id="card-template" type="text/template">
+    {{template "card"}}
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+
+</html>
