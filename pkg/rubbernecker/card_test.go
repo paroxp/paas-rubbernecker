@@ -4,7 +4,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/alphagov/paas-rubbernecker/pkg/rubbernecker"
+	"github.com/paroxp/paas-rubbernecker/pkg/rubbernecker"
 )
 
 var _ = Describe("Response", func() {

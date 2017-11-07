@@ -4,7 +4,7 @@ import (
 	"time"
 
 	pd "github.com/PagerDuty/go-pagerduty"
-	"github.com/alphagov/paas-rubbernecker/pkg/rubbernecker"
+	"github.com/paroxp/paas-rubbernecker/pkg/rubbernecker"
 )
 
 // Schedule will hold some internal and external information, such as client and

@@ -1,7 +1,7 @@
 package memory_test
 
 import (
-	"github.com/alphagov/paas-rubbernecker/pkg/memory"
+	"github.com/paroxp/paas-rubbernecker/pkg/memory"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

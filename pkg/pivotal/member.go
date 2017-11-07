@@ -3,7 +3,7 @@ package pivotal
 import (
 	"fmt"
 
-	"github.com/alphagov/paas-rubbernecker/pkg/rubbernecker"
+	"github.com/paroxp/paas-rubbernecker/pkg/rubbernecker"
 )
 
 // FetchMembers will contact the PivotalTracker API to get the list of members.

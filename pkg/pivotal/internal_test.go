@@ -7,7 +7,7 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/salsita/go-pivotaltracker/v5/pivotal"
 
-	"github.com/alphagov/paas-rubbernecker/pkg/rubbernecker"
+	"github.com/paroxp/paas-rubbernecker/pkg/rubbernecker"
 )
 
 var _ = Describe("Pivotal internal functionality", func() {

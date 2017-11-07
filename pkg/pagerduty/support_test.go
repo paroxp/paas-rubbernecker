@@ -6,7 +6,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/alphagov/paas-rubbernecker/pkg/pagerduty"
+	"github.com/paroxp/paas-rubbernecker/pkg/pagerduty"
 )
 
 var _ = Describe("PagerDuty", func() {

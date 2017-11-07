@@ -12,9 +12,9 @@ import (
 	"time"
 
 	log "github.com/Sirupsen/logrus"
-	"github.com/alphagov/paas-rubbernecker/pkg/pagerduty"
-	"github.com/alphagov/paas-rubbernecker/pkg/pivotal"
-	"github.com/alphagov/paas-rubbernecker/pkg/rubbernecker"
+	"github.com/paroxp/paas-rubbernecker/pkg/pagerduty"
+	"github.com/paroxp/paas-rubbernecker/pkg/pivotal"
+	"github.com/paroxp/paas-rubbernecker/pkg/rubbernecker"
 	"github.com/carlescere/scheduler"
 	"github.com/gorilla/mux"
 )

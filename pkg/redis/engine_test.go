@@ -4,7 +4,7 @@ import (
 	"os"
 	"strconv"
 
-	rre "github.com/alphagov/paas-rubbernecker/pkg/redis"
+	rre "github.com/paroxp/paas-rubbernecker/pkg/redis"
 	"github.com/go-redis/redis"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

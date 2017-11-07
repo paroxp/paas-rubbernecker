@@ -4,7 +4,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/alphagov/paas-rubbernecker/pkg/rubbernecker"
+	"github.com/paroxp/paas-rubbernecker/pkg/rubbernecker"
 	pt "github.com/salsita/go-pivotaltracker/v5/pivotal"
 )
 

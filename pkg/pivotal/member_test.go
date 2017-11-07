@@ -6,7 +6,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/alphagov/paas-rubbernecker/pkg/pivotal"
+	"github.com/paroxp/paas-rubbernecker/pkg/pivotal"
 )
 
 var _ = Describe("Pivotal Members", func() {

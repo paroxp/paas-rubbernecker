@@ -7,8 +7,8 @@ services:
   rubbernecker:
     image: golang:latest
     volumes:
-      - .:/go/src/github.com/alphagov/paas-rubbernecker
-    working_dir: /go/src/github.com/alphagov/paas-rubbernecker
+      - .:/go/src/github.com/paroxp/paas-rubbernecker
+    working_dir: /go/src/github.com/paroxp/paas-rubbernecker
     command: go run main.go
     links:
       - redis
